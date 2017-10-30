@@ -8,20 +8,20 @@ function hasRequireContext(code) {
 }
 
 module.exports = function plugin(options = {}) {
-    const filter = createFilter(options.include || ['**/*.js'], options.exclude || 'node_modules/**');
-    return {
-        name: 'require_content',
-        transform(code, id) {
-            if (!filter(id) || !hasRequireContext(code)) {
-                return;
-            }
-            const requireContextReg = /[var|const|let].*=.*require\.context\s*\(.*\);*/g;
-            const arr = code.match(requireContextReg);
+  const filter = createFilter(options.include || ['**/*.js'], options.exclude || 'node_modules/**');
+  return {
+    name: 'require_content',
+    transform(code, id) {
+      if (!filter(id) || !hasRequireContext(code)) {
+        return;
+      }
+      const requireContextReg = /[var|const|let].*=.*require\.context\s*\(.*\);*/g;
+      const arr = code.match(requireContextReg);
 
-            arr.map((line) => {
-                code = gernerateRequireContextCode(code, id, line);
-            });
-            return code;
-        }
-    };
+      arr.map((line) => {
+        code = gernerateRequireContextCode(code, id, line);
+      });
+      return code;
+    }
+  };
 };
