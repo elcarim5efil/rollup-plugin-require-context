@@ -1,8 +1,8 @@
 {
   "name": "rollup-plugin-require-context",
   "version": "0.0.1",
-  "description": "rollup plugin requrie-context webpack-context",
-  "main": "index.js",
+  "description": "rollup-plugin for webpack requrie-context",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
