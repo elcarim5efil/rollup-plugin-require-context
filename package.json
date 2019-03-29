@@ -4,7 +4,8 @@
   "description": "rollup-plugin for webpack requrie-context",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "brk": "node --inspect-brk example/run.js",
+    "example": "rollup -c example/rollup.config.js"
   },
   "repository": {
     "type": "git",
