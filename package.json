@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/elcarim5efil/rollup-plugin-require-context#readme",
   "dependencies": {
-    "rollup-pluginutils": "^2.0.1"
+    "rollup-pluginutils": "^2.5.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.7.4"
   }
 }
