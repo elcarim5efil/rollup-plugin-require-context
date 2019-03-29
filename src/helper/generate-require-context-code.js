@@ -3,10 +3,35 @@ const extractArgs = require('./extract-args');
 const resolveRequireModules = require('./resolve-reqquire-modules');
 const resolveRequireCode = require('./resolve-require-code');
 
-module.exports = function gernerateRequireContextCode(code, id, line) {
+module.exports = async function gernerateRequireContextCode(id, code) {
   const currentCodeDirname = Path.dirname(id);
-  const { dirname, recursive, regexp } = extractArgs(line, currentCodeDirname);
-  const modules = resolveRequireModules(dirname, recursive, regexp);
-  const requireCode = line.replace(/require\.context\s*\(.*\);*/, resolveRequireCode(dirname, modules));
-  return code.replace(line, requireCode);
+  const data = await extractArgs(code, currentCodeDirname);
+  let head = '';
+
+  const body = data.reduceRight((res, r) => {
+    const {
+      start, end,
+      dirname, recursive, regexp
+    } = r;
+    const modules = resolveRequireModules(dirname, recursive, regexp);
+    const moduleCode = resolveRequireCode(dirname, modules);
+    const {
+      importCode,
+      requireFnCode
+    } = moduleCode;
+
+    head += importCode;
+
+    res = [
+      res.slice(0, start),
+      requireFnCode,
+      res.slice(end)
+    ].join('');
+    return res;
+  }, code);
+
+  return [
+    head,
+    body
+  ].join('\n');
 };

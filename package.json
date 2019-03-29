@@ -25,6 +25,9 @@
   },
   "homepage": "https://github.com/elcarim5efil/rollup-plugin-require-context#readme",
   "dependencies": {
+    "acorn": "^6.1.1",
+    "acorn-dynamic-import": "^4.0.0",
+    "acorn-walk": "^6.1.1",
     "rollup-pluginutils": "^2.5.0"
   },
   "devDependencies": {

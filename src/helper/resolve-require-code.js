@@ -39,8 +39,11 @@ module.exports = function genRequireCode(baseDirname, modules) {
       return Object.keys(map);
     }
     return req;
-  })();
+  })()
 `);
 
-  return [importCode, requireFnCode].join('\n')
+  return {
+    importCode,
+    requireFnCode
+  };
 }
