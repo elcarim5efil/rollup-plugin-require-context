@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-require-context",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "rollup-plugin for webpack requrie-context",
   "main": "src/index.js",
   "scripts": {
