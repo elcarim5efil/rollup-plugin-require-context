@@ -1,4 +1,5 @@
 const _ = require('rollup-pluginutils');
+const generate = require('generate-source-map');
 const hasRequireContext = require('./helper/has-require-context');
 const gernerateRequireContextCode = require('./helper/generate-require-context-code');
 
@@ -11,7 +12,16 @@ module.exports = function plugin(options = {}) {
         return;
       }
       code = await gernerateRequireContextCode(id, code);
-      return code;
+
+      const sourcemap = generate({
+        source: code,
+        sourceFile: 'rollup-plugin-require-context.js'
+      }).toString();
+
+      return {
+        code,
+        map: sourcemap
+      };
     }
   };
 };
