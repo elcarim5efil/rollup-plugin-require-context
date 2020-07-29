@@ -1,5 +1,5 @@
 
-const build = require('./code/build');
+const build = require('./fixture/build');
 
 describe('collect left data', () => {
   it('default', async () => {
