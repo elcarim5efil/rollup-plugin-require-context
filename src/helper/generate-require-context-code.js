@@ -14,11 +14,7 @@ module.exports = async function gernerateRequireContextCode(id, code) {
       dirname, recursive, regexp
     } = r;
     const modules = resolveRequireModules(dirname, recursive, regexp);
-    const moduleCode = resolveRequireCode(dirname, modules);
-    const {
-      importCode,
-      requireFnCode
-    } = moduleCode;
+    const { importCode, requireFnCode } = resolveRequireCode(dirname, modules);
 
     head += importCode;
 
