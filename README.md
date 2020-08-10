@@ -1,8 +1,8 @@
 # rollup-plugin-require-context
 
-rollup plugin for resovling webpack require-context.
+rollup plugin for resolving webpack require-context.
 
-## usage
+## Usage
 
 ```javascript
 import requireContext from 'rollup-plugin-require-context';
@@ -18,3 +18,18 @@ export default {
   ]
 };
 ```
+## Options
+
+### `exclude`
+
+Type: `string | string[]`<br>
+Default: `null`
+
+A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns, which specifies the files in the build the plugin should _ignore_.
+
+### `include`
+
+Type: `string | string[]`<br>
+Default: `null`
+
+A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns, which specifies the files in the build the plugin should operate on.
