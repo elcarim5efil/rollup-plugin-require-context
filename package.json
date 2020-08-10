@@ -24,11 +24,12 @@
     "url": "https://github.com/elcarim5efil/rollup-plugin-require-context/issues"
   },
   "homepage": "https://github.com/elcarim5efil/rollup-plugin-require-context#readme",
+  "types": "types/index.d.ts",
   "dependencies": {
+    "@rollup/pluginutils": "^3.1.0",
     "acorn": "^6.1.1",
     "acorn-dynamic-import": "^4.0.0",
-    "acorn-walk": "^6.1.1",
-    "rollup-pluginutils": "^2.5.0"
+    "acorn-walk": "^6.1.1"
   },
   "devDependencies": {
     "generate-source-map": "0.0.5",
