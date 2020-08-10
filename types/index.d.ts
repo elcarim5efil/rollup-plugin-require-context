@@ -12,6 +12,12 @@ interface RollupRequireContextOptions {
      * @default undefined
      */
     exclude?: FilterPattern;
+    /**
+     * search for files other than .js files (must already
+     * be transpiled by a previous plugin!)
+     * @default [ '.js' ]
+     */
+    extensions?: ReadonlyArray<string | RegExp>;
 }
 
 /**

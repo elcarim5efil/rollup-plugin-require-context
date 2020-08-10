@@ -33,3 +33,10 @@ Type: `string | string[]`<br>
 Default: `null`
 
 A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns, which specifies the files in the build the plugin should operate on.
+
+### `extensions`
+
+Type: `string[]`<br>
+Default: `['.js']`
+
+Search for extensions other than .js in the order specified.
