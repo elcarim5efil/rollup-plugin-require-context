@@ -8,7 +8,7 @@ function getUID() {
 
 
 function genImportCode(name, path) {
-  return `import ${name} from '${path}';\n`;
+  return `import * as ${name} from '${path}';\n`;
 }
 
 function genPropsCode(key, value) {
